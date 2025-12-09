@@ -24,8 +24,11 @@ class CardNews extends StatelessWidget {
       child: Column(
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(Radius.circular(16)),
             child: CachedNetworkImage(
+              fit: BoxFit.fill,
+              height: height * 0.3,
+              width: double.infinity,
               imageUrl: source.urlToImage ?? "",
               placeholder: (context, url) => Center(
                 child: CircularProgressIndicator(
@@ -57,4 +60,6 @@ class CardNews extends StatelessWidget {
       ),
     );
   }
+
+
 }

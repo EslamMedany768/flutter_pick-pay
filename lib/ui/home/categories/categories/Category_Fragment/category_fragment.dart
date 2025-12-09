@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/model/categoryModel.dart';
-import 'package:news_app/ui/home/Category_Fragment/categoryCard.dart';
+
+import 'categoryCard.dart';
 
 class CategoryFragment extends StatelessWidget {
   Function onCardClicked;

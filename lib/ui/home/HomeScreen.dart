@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'Category_Fragment/category_fragment.dart';
+import 'categories/categories/Category_Fragment/category_fragment.dart';
 import 'categories/categories/categories_details.dart';
 import 'categories/news/news_Widget.dart';
+import 'drawer/drawer.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "home";
@@ -16,7 +17,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
+      drawer: CustomDrawer(onHomeButtonClicked: onDrawerIconClicked),
       appBar: AppBar(title: Text("Home")),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -38,10 +42,16 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  String? category;
+  static String? category;
 
   void onCardClicked(String newCategory) {
     category = newCategory;
+    setState(() {});
+  }
+
+  void onDrawerIconClicked() {
+    Navigator.pop(context);
+    category = null;
     setState(() {});
   }
 }
